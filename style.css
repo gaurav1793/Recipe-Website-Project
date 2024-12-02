@@ -4,11 +4,13 @@
     box-sizing: border-box;
 }
 
-
+body{
+    overflow: hidden;
+}
 .container{
     height: 100vh;
     width: 100vw;
-    overflow-x: none;
+    overflow-x: hidden;
     background-color: #FFDEE9;
     background-image: linear-gradient(0deg, #FFDEE9 0%, #B5FFFC 100%);
 
@@ -80,17 +82,22 @@ a{
     display: flex;
     justify-content: space-around;
 }
-
-
-.rightBox img{
+.rightBox{
+    position: relative; 
+    transition:all 0.3s linear 0s;
     height: 300px;
     width: 250px;
+}
+
+.rightBox img{
+    height: 100%;
+    width: 100%;
     border-radius: 20px;
-    border:2px solid black;
+    /* border:2px solid black; */
     transition: all 0.6s ease 0s;
 }
-.rightBox img:hover{
-    transform: scale(1.2);
+.rightBox:hover img{
+    transform: scale(1.1);
 }
 .leftBox{
     display: flex;
@@ -109,5 +116,29 @@ a{
 }
 
 .olig{
+    font-size :1.1rem ;
+}
 
+.rightBox .overlay{
+    position: absolute;
+    top:0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    /* border: 2px solid black; */
+    border-radius: 20px;
+    background-color: rgba(64, 60, 60, 0.845);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: all 1s linear 0s;
+    opacity: 0;
+}
+
+.rightBox:hover .overlay{
+    opacity: 1;
+}
+.rightBox .overlay span{
+    color: azure;
+    font-size: 1.2rem;
 }
